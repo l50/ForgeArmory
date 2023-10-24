@@ -13,7 +13,7 @@ mitre:
     - T1098 Account Manipulation
 
 steps:
-  - name: ensure-aws-creds-present
+  - name: ensure_aws_creds_present
     inline: |
       set -e
 
@@ -31,7 +31,7 @@ steps:
         exit 1
       fi
 
-  - name: ensure-aws-cli-present
+  - name: ensure_aws_cli_present
     inline: |
       set -e
 
@@ -42,7 +42,7 @@ steps:
         aws --version
       fi
 
-  - name: add-user-to-group
+  - name: add_user_to_group
     inline: |
       set -e
 
@@ -59,7 +59,7 @@ steps:
         aws iam remove-user-from-group --user-name {{ .Args.user }} \
           --group-name {{ .Args.group }}
 
-  - name: check-detection
+  - name: check_detection
     inline: |
       set -e
 

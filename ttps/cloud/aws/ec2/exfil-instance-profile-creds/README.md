@@ -55,9 +55,9 @@ any exfiltration attempts:
 
 ```bash
 ttpforge run forgearmory//cloud/aws/ec2/exfil-instance-profile-creds/exfil-instance-profile-creds.yaml \
-  --arg vpc_id=vpc-12345678 \
-  --arg subnet_id=subnet-12345678 \
-  --arg ec2_instance_id=i-12345678
+  --arg vpc_id=$VPC_ID \
+  --arg subnet_id=$SUBNET_ID \
+  --arg ec2_instance_id=$EC2_INSTANCE_ID
 ```
 
 Extract instance profile credentials using SSH, specifying an SSH key:

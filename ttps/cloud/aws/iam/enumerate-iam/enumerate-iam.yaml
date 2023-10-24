@@ -18,7 +18,7 @@ mitre:
     - T1082 System Information Discovery
 
 steps:
-  - name: ensure-aws-creds-present
+  - name: ensure_aws_creds_present
     inline: |
       set -e
 
@@ -36,7 +36,7 @@ steps:
           exit 1
       fi
 
-  - name: ensure-aws-cli-present
+  - name: ensure_aws_cli_present
     inline: |
       set -e
 
@@ -46,7 +46,7 @@ steps:
         echo -e "AWS CLI is installed: $(aws --version)"
       fi
 
-  - name: ensure-dependencies-present
+  - name: ensure_dependencies_present
     inline: |
       set -e
 
@@ -89,7 +89,7 @@ steps:
       # Fix hanging issue bug (https://github.com/andresriancho/enumerate-iam/pull/15/commits/77ad5b41216e3b5f1511d0c385da8cd5984c2d3c)
       sed -i"" -e "s/'max_attempts': 30/'max_attempts': 3/" /tmp/enumerate-iam/enumerate_iam/main.py
 
-  - name: run-enumerate-iam
+  - name: run_enumerate_iam
     inline: |
       set -e
 
@@ -122,7 +122,7 @@ steps:
             rm -rf {{ .Args.eiam_path }}
         fi
 
-  - name: check-detection
+  - name: check_detection
     inline: |
       set -e
 

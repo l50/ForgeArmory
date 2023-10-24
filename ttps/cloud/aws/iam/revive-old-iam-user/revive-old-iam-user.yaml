@@ -12,7 +12,7 @@ mitre:
     - T1098 Account Manipulation
 
 steps:
-  - name: ensure-aws-creds-present
+  - name: ensure_aws_creds_present
     inline: |
       set -e
 
@@ -29,7 +29,7 @@ steps:
           exit 1
       fi
 
-  - name: ensure-aws-cli-present
+  - name: ensure_aws_cli_present
     inline: |
       set -e
 
@@ -103,7 +103,7 @@ steps:
 
         delete_key "{{ .Args.user }}" $forge.steps.add_access_key.stdout
 
-  - name: check-detection
+  - name: check_detection
     inline: |
       set -e
 

@@ -16,7 +16,7 @@ args:
     default: nil
 
 steps:
-  - name: ensure-aws-creds-present
+  - name: ensure_aws_creds_present
     inline: |
       set -e
 
@@ -34,7 +34,7 @@ steps:
           exit 1
       fi
 
-  - name: ensure-bins-present
+  - name: ensure_bins_present
     inline: |
       set -e
 
@@ -50,7 +50,7 @@ steps:
         echo -e "jq is installed: $(jq --version)"
       fi
 
-  - name: ensure-valid-input
+  - name: ensure_valid_input
     inline: |
       set -e
 
@@ -90,7 +90,7 @@ steps:
         exit 1
       fi
 
-  - name: get-aws-utils
+  - name: get_aws_utils
     inline: |
       set -e
 
@@ -106,7 +106,7 @@ steps:
           curl -s "${aws_utils_url}" -o "${aws_utils_path}"
       fi
 
-  - name: create-or-use-ec2-and-exfiltrate-instance-profile
+  - name: create_or_use_ec2_and_exfiltrate_instance_profile
     inline: |
       set -e
 
@@ -221,7 +221,7 @@ steps:
           delete_security_group "{{ .Args.security_group_id }}"
         fi
 
-  - name: check-detection
+  - name: check_detection
     inline: |
       set -e
 
